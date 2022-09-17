@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <p>String reverse</p>
+    <p id="string"></p>
+    <script>
+        //inbuild methods
+        function reverseStr(str) {
+            var splitString = str.split("");
+            var reverseString = splitString.reverse();
+            var joinString =    reverseString.join("");
+            console.log("Jawed --> reverse -->",joinString);
+        }
+        reverseStr("Jawed");
+        
+        //inbuild methods
+        var reverseString = function(str) {
+            var revsConcept = str.split("").reverse().join("");
+            var reverseWord = revsConcept.split(" ").reverse().join(" ");
+            console.log(reverseWord);
+        }
+        reverseString("Ahamad is a good man");
+
+        //without inbuild methods
+        var reverseString = function revsStr(str) {
+            var newString = "";
+            for (var i = str.length-1;  i >= 0;  i--) {
+                newString += str[i];
+            }
+            console.log("Jawed Ahamad --> reverse -->",newString);
+        }
+        reverseString("Jawed Ahamad");
+
+        //reverse string with recursion
+        function rsvString(str) {
+            if (str === ""){
+                return "";
+            }else{
+            return rsvString(str.substr(1)) + str.charAt(0);
+            }
+        }
+        rsvString("Hello");
+        console.log(rsvString("hello world"));
+
+        //tenary operator
+        function rsvStr(str) {
+            return (str === "") ?  "" : rsvStr(str.substr(1)) + str.charAt(0);
+        }
+        rsvStr("Welcome");
+        console.log(rsvStr("Welcome"));
+
+// this is word reverse but position should not change.
+        const reverseFunc = function(str){
+            let stringSlpit = str.split("");
+            stringSlpit.map((word) => {
+                    return word.split("").reverse().join("");
+                }).join("");
+            console.log(stringSlpit);
+        }
+        reverseFunc("This is powerfull");
+    </script>
+</body>
+</html>

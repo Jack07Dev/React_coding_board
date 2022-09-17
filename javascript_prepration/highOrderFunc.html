@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <p>High Order Function</p>
+    <p>First Class Citizen Function</p>
+    <p>Callback Function</p>
+
+    <script>
+        // high order function
+        const InterviewQuestions =(name) => {
+            if (name === "Vinod") {
+                return function (topic) {
+                    console.log(`Hii, ${name}. What is ${topic}. Plz explain`);
+                }
+            }if (name === "Jawed") {
+                return function (topic) {
+                    console.log(`Hii, ${name}. What is ${topic}. Plz explain`);
+                }
+            }if (name === "Saddam") {
+                return function (topic) {
+                    console.log(`Hii, ${name}. What is ${topic}. Plz explain`);
+                }
+            }
+            return "Welcome to interview"
+        }
+
+        // InterviewQuestions("Vinod")("UI");
+        // InterviewQuestions("Jawed")("React");
+        // InterviewQuestions("Saddam")("Html");
+
+        const candidate1 =  InterviewQuestions("Vinod");
+        candidate1("React");
+        candidate1("Javascript");
+        candidate1("UI");
+
+
+         // first class citizen funtion
+        const myName = () =>{
+            return "hello";
+        }
+        const myAdd = () =>{
+            return 8;
+        }
+
+        const greeting = (sayhi, add, name) =>{
+            console.log(sayhi() + " " + add() + " " + name);
+        }
+        greeting(myName, myAdd, "Jawed");
+
+
+
+        //why needed callback function
+        // ------------------------------------------
+        const funcA = () =>{
+            setTimeout(function() {
+                console.log(`welcome funcA`);
+            }, 3000)
+        }
+
+        const funcB = () =>{
+            console.log(`welcome funcB`);
+        }
+        funcA();
+        funcB();
+        //------------------------------------------  
+
+        // how to apply callback function
+
+        const personA =(friend) => {
+            console.log(`I am busy rightnow. I'm talking to my friend ${friend}. I will call you back`);
+        }
+
+        const personB =() => {
+            console.log(`hey what'sup I'm calling you.`);
+        }
+        
+        personA("Jawed", personB);
+    </script>
+</body>
+</html>
